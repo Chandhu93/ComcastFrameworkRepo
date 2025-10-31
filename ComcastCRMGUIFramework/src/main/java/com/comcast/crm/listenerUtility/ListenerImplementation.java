@@ -47,6 +47,7 @@ public class ListenerImplementation implements ITestListener, ISuiteListener{
 		test.log(Status.INFO, result.getMethod().getMethodName()+"=== STARTED ===");
 	}
 
+	
 	@Override
 	public void onTestSuccess(ITestResult result) {
 		test.log(Status.PASS, result.getMethod().getMethodName()+"=== COMPLETED ===");
@@ -70,3 +71,6 @@ public class ListenerImplementation implements ITestListener, ISuiteListener{
 	}
 
 }
+
+
+

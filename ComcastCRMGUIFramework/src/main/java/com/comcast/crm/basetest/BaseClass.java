@@ -19,6 +19,7 @@ import com.comcast.crm.generic.databaseutility.DataBaseUtility;
 import com.comcast.crm.generic.fileutility.ExcelUtility;
 import com.comcast.crm.generic.fileutility.FileUtility;
 import com.comcast.crm.generic.webdriverutility.JavaUtility;
+import com.comcast.crm.generic.webdriverutility.UtilityClassObject;
 import com.comcast.crm.generic.webdriverutility.WebDriverUtility;
 import com.comcast.crm.objectrepositary.HomePage;
 import com.comcast.crm.objectrepositary.LoginPage;
@@ -37,10 +38,8 @@ public class BaseClass {
 	public void beforeSuite() throws SQLException{
 		dbLib.getDbConnection();
 		System.out.println("Database Connection");
-		
 	}
 
-	
 	@BeforeClass (groups= {"smokeTest", "regressionTest"})
 	public void beforeClass() throws IOException {
 		
@@ -56,10 +55,11 @@ public class BaseClass {
 		}else {
 			driver= new ChromeDriver();
 		}
+		UtilityClassObject.setDriver(driver);
 	}
 	
 	//Cross Browser
-	@Parameters("browser")   //data of Browser from suite is storing in browser variable
+	//@Parameters("browser")   //data of Browser from suite is storing in browser variable
 //	@BeforeClass (groups= {"smokeTest", "regressionTest"})
 //	public void beforeClass(String  Browser) throws IOException {
 //		
@@ -102,8 +102,5 @@ public class BaseClass {
 	@AfterSuite (groups= {"smokeTest", "regressionTest"})
 	public void afterSuite() throws SQLException {
 		dbLib.closeDbConnection();
-
 	}
-
-
 }

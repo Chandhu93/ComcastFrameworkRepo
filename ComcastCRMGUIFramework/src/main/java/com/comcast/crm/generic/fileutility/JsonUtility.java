@@ -10,8 +10,8 @@ import org.json.simple.parser.ParseException;
 public class JsonUtility {
 	public String getDataFromJsonFile(String key) throws IOException, ParseException {
 		FileReader fileR = new FileReader("./configAppData/appCommonData.json");
-		JSONParser parser = new JSONParser();
-		Object obj = parser.parse(fileR);
+		JSONParser jp = new JSONParser();
+		Object obj = jp.parse(fileR);
 		JSONObject map = (JSONObject) obj;
 		String data= (String) map.get(key);
 		return data;

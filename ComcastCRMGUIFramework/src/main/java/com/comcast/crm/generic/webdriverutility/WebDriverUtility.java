@@ -36,7 +36,6 @@ public class WebDriverUtility {
 		for (String wId :  allWId) {
 			driver.switchTo().window(wId);
 			String actUrl = driver.getCurrentUrl();
-			
 			if(actUrl.contains(partilURL)) {
 				break;
 			}
@@ -147,11 +146,13 @@ public class WebDriverUtility {
 	public void takeScreenshot(WebDriver driver) throws IOException {
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File src = ts.getScreenshotAs(OutputType.FILE);
-		File dst = new File("./screenshot/faiedTest.png");
-		FileUtils.copyFile(src, dst);
+		FileUtils.copyFile(src, new File("./screenshot/faiedTest.png"));
 	}
 
-
+	public void jsClick(WebDriver driver, WebElement element) {
+		JavascriptExecutor j = (JavascriptExecutor) driver;
+		j.executeScript("arguments[0].click()", element); 
+	}
 
 }
 
