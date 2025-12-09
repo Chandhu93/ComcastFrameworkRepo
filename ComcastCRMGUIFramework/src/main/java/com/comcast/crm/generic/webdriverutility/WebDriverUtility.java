@@ -125,7 +125,7 @@ public class WebDriverUtility {
 
 	public void scrollBy(WebDriver driver, int y) {
 		Actions a = new Actions(driver);
-		a.scrollByAmount(0, y);
+		a.scrollByAmount(0, y).perform();
 	}
 
 	public void scrollToElement(WebDriver driver, WebElement element) {
